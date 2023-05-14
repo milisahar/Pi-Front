@@ -1,0 +1,52 @@
+
+
+                        <div  class="card-header card-header-primary" style="background-color:transparent;padding: 0px;display: flex ;">
+                                <button (click)="addF()" style="margin-right: 20%;height: 50px;" class="btn btn-success">Create Fundraiser</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="container--parent">
+                                <div class="container--child">
+                                    <div class="container--steps">
+
+                                        <section *ngFor="let item of fundraisers" >
+                                            <div class="cardContainer inactive">
+                                                <div class="card">
+                                                    <div class="side front">
+                                                        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;background-color: transparent;">
+                                                            <button mat-icon-button style="border: transparent;" (click)="updateFundraiser(item.fundraiser_id)">
+                                                                <i class="material-icons" style="color: red;">edit</i>
+                                                            </button>
+                                                            <button mat-icon-button style="border: transparent;" (click)="deleteFundraiser(item.fundraiser_id)">
+                                                                <i class="material-icons" style="color: red;">delete_outline</i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="img img1">
+                                                            <button class="btn btn-success btnimage" (click)="addFundDonation(item.fundraiser_id)">donate now<i class="material-icons" style="color: red;margin-left: 8px">favorite_border</i></button>
+                                                        </div>
+                                                        <div class="info">
+                                                            <h2>{{item.title}}</h2>
+                                                            <p>{{item.goal}}</p>
+                                                            <p>{{item.description}}</p>
+
+                                                         <h5 class="date" style="font-weight: bold;margin-top: 20px">Deadline: {{item.deadline | date:"MM/dd/yy"}}</h5>
+                                                        <div style="display: inline-flex; justify-content: space-between">
+                                                        <div class="price" style="margin-left: 0%;transform: translateX(-30%)translateY(-20%);">
+                                                                <h5>${{item.target}}</h5>
+                                                                <h6>target</h6>
+                                                            </div>
+                                                            <div class="price" style="transform: translateX(+40%)translateY(-20%);">
+                                                                <h5 >${{item.progressStatus}}</h5>
+                                                                <h6>collected</h6>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                </div>
+
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
